@@ -7,7 +7,7 @@ services:
   site:
     build:
       context: .
-      dockerfile: nginx.dockerfile
+      dockerfile: nginx/Dockerfile
     container_name: nginx
     ports:
       - 3000:3000
@@ -38,7 +38,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: php.dockerfile
+      dockerfile: php/Dockerfile
     container_name: php
     volumes:
       - ./wordpress:/var/www/html:delegated
@@ -56,5 +56,4 @@ services:
     networks:
       - wordpress
 
-# docker-compose up -d --build site  
-# docker-compose run --rm wp core download 
+# docker-compose up -d --build site 
